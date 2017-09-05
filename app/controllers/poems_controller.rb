@@ -1,5 +1,5 @@
 class PoemsController < ApplicationController
-  before_action :set_poem, only: [:show, :edit, :destroy]
+  before_action :set_poem, only: [:show, :edit, :destroy, :update]
 
   # GET /poems
   # GET /poems.json
@@ -40,7 +40,7 @@ class PoemsController < ApplicationController
   # PATCH/PUT /poems/1
   # PATCH/PUT /poems/1.json
   def update
-    @poem = Poem.new(poem_params)
+    @poem.update(poem_params)
     respond_to do |format|
       if @poem.update(poem_params)
         format.html { redirect_to @poem, notice: 'Poem was successfully updated.' }
